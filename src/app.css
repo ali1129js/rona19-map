@@ -1,0 +1,10 @@
+/**
+ * @Author: Ali
+ * @Date:   2020-05-05T23:02:52+02:00
+ * @Last modified by:   Ali
+ * @Last modified time: 2020-05-05T23:03:52+02:00
+ */
+.leaflet-container {
+  width:100%;
+  height:100vh;
+}
