@@ -2,12 +2,11 @@
  * @Author: Ali
  * @Date:   2020-05-05T22:54:53+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-06T14:54:38+02:00
+ * @Last modified time: 2020-05-07T10:13:53+02:00
  */
 
 import React, { Component } from "react";
 import Container from "./components/Container";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import "./app.css";
 
@@ -17,6 +16,7 @@ class App extends Component {
   state = {
     geoLoc: {}
   };
+
   componentDidMount() {
     fetch(endpoint)
       .then(geoLoc => geoLoc.json())
@@ -27,13 +27,20 @@ class App extends Component {
         console.error(err);
       });
   }
+
+  handleClick = () => {
+    console.log("clicked");
+  };
   render() {
-    console.log(this.state.geoLoc.lon, this.state.geoLoc.lat);
-    return (
-      <div className="">
-        <Container />
-      </div>
-    );
+    if (this.state.geoLoc.lat === undefined) {
+      return <div className="loading">loading ...</div>;
+    } else {
+      return (
+        <div className="">
+          <Container position={this.state.geoLoc} />
+        </div>
+      );
+    }
   }
 }
 
