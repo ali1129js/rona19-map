@@ -2,10 +2,9 @@
  * @Author: Ali
  * @Date:   2020-05-06T14:42:36+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-07T14:02:06+02:00
+ * @Last modified time: 2020-05-07T17:37:34+02:00
  */
 import React, { Component } from "react";
-import { Map, TileLayer } from "react-leaflet";
 import Country from "./Country";
 
 class Container extends Component {

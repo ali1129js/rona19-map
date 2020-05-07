@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2020-05-07T10:25:34+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-07T14:09:44+02:00
+ * @Last modified time: 2020-05-07T17:33:06+02:00
  */
 import React, { useState, useEffect } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
@@ -25,7 +25,7 @@ const Country = ({ country, position }) => {
     return <div className="">{endpoint}</div>;
   } else {
     return (
-      <Map center={position} zoom={5}>
+      <Map center={position} zoom={6}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
