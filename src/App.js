@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2020-05-05T22:54:53+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-07T14:17:35+02:00
+ * @Last modified time: 2020-05-08T14:55:54+02:00
  */
 
 import React, { Component } from "react";
@@ -28,9 +28,6 @@ class App extends Component {
       });
   }
 
-  handleClick = () => {
-    console.log("clicked");
-  };
   render() {
     if (this.state.geoLoc.lat === undefined) {
       return <div className="loading">loading ...</div>;

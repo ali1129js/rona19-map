@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2020-05-07T10:25:34+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-07T17:33:06+02:00
+ * @Last modified time: 2020-05-08T14:56:44+02:00
  */
 import React, { useState, useEffect } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
@@ -11,6 +11,19 @@ const Country = ({ country, position }) => {
   const endpoint = `https://covid19.mathdro.id/api/countries/${country}`;
   const [countryStats, setStats] = useState(null);
   useEffect(() => {
+    if (country === "United States") {
+      const endpoint = "https://covid19.mathdro.id/api/countries/usa";
+      fetch(endpoint)
+        .then(results => results.json())
+        .then(data => {
+          setStats({
+            confirmed: data.confirmed.value,
+            recovered: data.recovered.value,
+            deaths: data.deaths.value
+          });
+        })
+        .catch(err => console.error("Error", err));
+    }
     fetch(endpoint)
       .then(results => results.json())
       .then(data => {
@@ -19,13 +32,14 @@ const Country = ({ country, position }) => {
           recovered: data.recovered.value,
           deaths: data.deaths.value
         });
-      });
-  }, [endpoint]);
+      })
+      .catch(err => console.error("Error", err));
+  }, [country, endpoint]);
   if (countryStats === null) {
     return <div className="">{endpoint}</div>;
   } else {
     return (
-      <Map center={position} zoom={6}>
+      <Map center={position} zoom={5}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
