@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2020-05-05T22:54:53+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2020-05-08T14:55:54+02:00
+ * @Last modified time: 2020-05-09T13:33:53+02:00
  */
 
 import React, { Component } from "react";
@@ -33,7 +33,7 @@ class App extends Component {
       return <div className="loading">loading ...</div>;
     } else {
       return (
-        <div className="">
+        <div className="app">
           <Container position={this.state.geoLoc} />
         </div>
       );
